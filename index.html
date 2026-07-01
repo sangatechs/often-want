@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Calculate the Age Difference Between You and Your Children in Hijri and Gregorian Years</title>
+<meta name="description" content="Parents often want to know not just how old their children are, but the exact gap between generations. With حساب فارق العمر, you can measure the difference between your birthdate and your child's in both Hijri and Gregorian years, months, and days for a precise family age map.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;background:#fdfaf5;color:#1a1510;line-height:1.8}
+a{color:#2a5a2a;font-weight:700;text-decoration:none;border-bottom:1px dotted #6a9a6a}
+a:hover{border-color:#2a5a2a}
+
+.hero{background:linear-gradient(180deg,#1a2a1a 0%,#2a4a2a 60%,#3a6a3a 100%);padding:62px 24px 70px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:50px;background:#fdfaf5;clip-path:polygon(0 100%,100% 100%,100% 40%,50% 0%,0 40%)}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);font-size:.7rem;letter-spacing:3px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:20px;font-family:'Segoe UI',sans-serif}
+h1{font-size:2rem;font-weight:700;color:#fff;max-width:700px;margin:0 auto 16px;line-height:1.28}
+.hero-lead{font-size:1rem;color:rgba(255,255,255,.75);max-width:560px;margin:0 auto;font-family:'Segoe UI',sans-serif;line-height:1.8}
+
+.tree-wrap{max-width:700px;margin:0 auto;padding:50px 24px 10px}
+.tree{display:flex;flex-direction:column;align-items:center;gap:0}
+.gen-row{display:flex;justify-content:center;gap:30px;width:100%}
+.gen-node{background:#fff;border:2px solid #c8d8b8;border-radius:8px;padding:16px 20px;text-align:center;position:relative;min-width:140px}
+.gen-node.parent-node{border-color:#2a5a2a;border-width:3px}
+.gn-icon{font-size:1.6rem;display:block;margin-bottom:6px}
+.gn-label{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:#8a9a7a;font-family:'Segoe UI',sans-serif;margin-bottom:4px}
+.gn-age{font-size:1.4rem;font-weight:700;color:#2a5a2a;font-family:'Segoe UI',sans-serif;line-height:1}
+.gn-detail{font-size:.74rem;color:#6a7a5a;font-family:'Segoe UI',sans-serif;margin-top:4px}
+.tree-connector{width:2px;height:30px;background:linear-gradient(#2a5a2a,#6a9a5a);margin:0 auto;position:relative}
+.tree-connector::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:#6a9a5a}
+.gap-badge{background:#6a9a5a;color:#fff;border-radius:20px;padding:6px 16px;font-family:'Segoe UI',sans-serif;font-size:.82rem;font-weight:700;margin:2px 0}
+
+main{max-width:760px;margin:0 auto;padding:50px 24px}
+.sec{margin-bottom:48px}
+h2{font-size:1.45rem;font-weight:700;color:#1a1510;margin-bottom:14px}
+h2 span{color:#2a5a2a}
+h3{font-size:1rem;font-weight:700;color:#2a5a2a;margin:18px 0 8px;font-family:'Segoe UI',sans-serif}
+p{font-size:.97rem;color:#2a2018;margin-bottom:14px;line-height:1.82;font-family:'Segoe UI',sans-serif}
+
+.data-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0}
+.dg-item{background:#fff;border:1px solid #d8e8c8;border-radius:8px;padding:18px 16px;border-top:3px solid #2a5a2a}
+.dg-title{font-size:.82rem;font-weight:700;color:#1a1510;font-family:'Segoe UI',sans-serif;margin-bottom:8px}
+.dg-text{font-size:.82rem;color:#5a6a4a;font-family:'Segoe UI',sans-serif;line-height:1.55}
+
+.callout{background:#f0f8e8;border-radius:0 10px 10px 0;border-left:4px solid #2a5a2a;padding:18px 22px;margin:18px 0}
+.callout p{color:#1a3018;margin:0;font-family:'Segoe UI',sans-serif;font-size:.96rem}
+
+.cta{background:#1a2a1a;border-radius:12px;padding:40px 28px;text-align:center;color:#fff;margin-top:8px}
+.cta h2{color:#b8d898;border:none}
+.cta p{color:#7a9a6a;margin:0;font-family:'Segoe UI',sans-serif}
+
+footer{background:#0e1808;color:#3a4a2a;text-align:center;padding:24px;font-size:.82rem;font-family:'Segoe UI',sans-serif}
+
+@media(max-width:600px){
+  .gen-row{flex-direction:column;align-items:center}
+  .data-grid{grid-template-columns:1fr}
+  h1{font-size:1.55rem}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Family Age Map · Parent &amp; Child · Generational Gap</div>
+  <h1>Calculate the Age Difference Between You and Your Children in Hijri and Gregorian Years</h1>
+  <p class="hero-lead">A precise generational gap tells a richer story than "we are about thirty years apart." It anchors your family's age map in real numbers, in both calendar systems your family may live by.</p>
+</div>
+
+<div class="tree-wrap">
+  <div class="tree">
+    <div class="gen-row">
+      <div class="gen-node parent-node">
+        <span class="gn-icon">👨</span>
+        <div class="gn-label">Parent</div>
+        <div class="gn-age">45 yrs</div>
+        <div class="gn-detail">47 Hijri years</div>
+      </div>
+    </div>
+    <div class="tree-connector"></div>
+    <div class="gap-badge">Gap: 27 yrs 4 mo Gregorian · 28 yrs 3 mo Hijri</div>
+    <div class="tree-connector"></div>
+    <div class="gen-row">
+      <div class="gen-node">
+        <span class="gn-icon">👧</span>
+        <div class="gn-label">Child</div>
+        <div class="gn-age">17 yrs</div>
+        <div class="gn-detail">18 Hijri years</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <div class="sec">
+    <h2>Why the <span>Generational Gap</span> Deserves a Precise Number</h2>
+    <p>Parents often want to know not just how old their children are, but the exact gap between generations. With <a href="https://hasibatalumr.com/2-person-compare/">حساب فارق العمر</a>, you can measure the difference between your birthdate and your child's in both Hijri and Gregorian years, months, and days for a precise family age map — with both outputs appearing side by side without any manual conversion.</p>
+
+    <div class="data-grid">
+      <div class="dg-item">
+        <div class="dg-title">School Enrollment Planning</div>
+        <div class="dg-text">Knowing the exact gap helps parents sequence siblings through school enrollment cutoffs and plan when each child needs financial support for university simultaneously.</div>
+      </div>
+      <div class="dg-item">
+        <div class="dg-title">Generational Health Awareness</div>
+        <div class="dg-text">When a parent's age at a health diagnosis is known, the child who is exactly that many years younger can plan for their own screening at the appropriate future date.</div>
+      </div>
+      <div class="dg-item">
+        <div class="dg-title">Legal and Inheritance Documents</div>
+        <div class="dg-text">Wills, trust documents, and inheritance law in many countries refer to precise age thresholds. The exact gap between parent and child affects when assets can be transferred.</div>
+      </div>
+      <div class="dg-item">
+        <div class="dg-title">Cultural Milestone Alignment</div>
+        <div class="dg-text">Families who observe religious or cultural coming-of-age milestones want to know the exact date their child will reach a specific Hijri or Gregorian age threshold.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Why the <span>Hijri Gap</span> Differs from the Gregorian Gap</h2>
+    <p>The Hijri year runs approximately 11 days shorter than the Gregorian year. This means that when you calculate the age gap between a parent and child in Hijri terms, the result will be slightly larger than the Gregorian gap — by an amount that grows with the size of the gap itself.</p>
+    <p>For a 25-year Gregorian gap, the Hijri equivalent is approximately 25 years and 9 months. For a 30-year Gregorian gap, the Hijri equivalent is roughly 30 years and 11 months. The larger the generational distance, the more the two systems diverge.</p>
+
+    <div class="callout">
+      <p>In countries where official family records use Hijri dates, the father's age and the child's age on those documents will show a Hijri gap. When those same people interact with international systems — embassies, universities, hospitals — the gap converts to Gregorian. Having both numbers ready prevents confusion and documentation errors.</p>
+    </div>
+
+    <h3>The Parent's Age When Each Child Was Born</h3>
+    <p>Beyond the raw gap, many parents want to know: how old was I, precisely, when this child was born? Entering your own birth date and your child's birth date gives you exactly that — your age in years, months, and days at the moment of their birth, in both calendars. This is the number that anchors your family's generational narrative.</p>
+    <h3>Multiple Children, Multiple Gaps</h3>
+    <p>Families with three or four children can use the same tool repeatedly to map all the sibling gaps as well as the parent-to-each-child distances. The result is a complete family age map — a single view of where every member of your family sits in time relative to every other member.</p>
+  </div>
+
+  <div class="cta">
+    <h2>Build Your Family Age Map</h2>
+    <p>Enter your birth date and your child's birth date — get the exact generational gap in Gregorian and Hijri years, months, and days</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 hasibatalumr.com</p>
+</footer>
+
+<script>
+const cl=document.createElement('link');cl.rel='canonical';cl.href=window.location.href;document.head.appendChild(cl);
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Calculate the Age Difference Between You and Your Children in Hijri and Gregorian Years","description":"Parents often want to know not just how old their children are, but the exact gap between generations. With حساب فارق العمر, you can measure the difference between your birthdate and your child's in both Hijri and Gregorian years, months, and days for a precise family age map.","author":{"@type":"Organization","name":"hasibatalumr.com"},"publisher":{"@type":"Organization","name":"hasibatalumr.com","logo":{"@type":"ImageObject","url":"https://hasibatalumr.com/logo.png"}},"datePublished":"2026-07-01","dateModified":"2026-07-01"}
+</script>
+</body>
+</html>
